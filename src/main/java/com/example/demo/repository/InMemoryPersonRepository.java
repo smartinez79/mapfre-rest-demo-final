@@ -42,9 +42,9 @@ public class InMemoryPersonRepository {
         return person;
     }
 
-    public Person updatePerson(Person person) {
+    public Person updatePerson(String id, Person person) {
         return people.stream()
-                .filter(p -> p.getId().equals(person.getId()))
+                .filter(p -> p.getId().equals(id))
                 .findAny()
                 .map(p -> {
                     p.setFirstName(person.getFirstName());

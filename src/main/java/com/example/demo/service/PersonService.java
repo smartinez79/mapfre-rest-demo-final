@@ -51,9 +51,9 @@ public class PersonService {
         return personMapper.toDto(personRepository.createPerson(model));
     }
 
-    public PersonDto updatePerson(PersonDto personDto) {
+    public PersonDto updatePerson(String id, PersonDto personDto) {
         Person model = personMapper.toModel(personDto);
-        return Optional.ofNullable(personRepository.updatePerson(model))
+        return Optional.ofNullable(personRepository.updatePerson(id, model))
                 .map(personMapper::toDto)
                 .orElse(null);
     }
